@@ -1,0 +1,233 @@
+#cf {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:20px auto;
+}
+
+#cf img {
+  position:absolute;
+  opacity: 0;
+  left:0;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes cf3FadeInOut {
+  0% {
+    transform-origin: left top;
+    transform: rotate3d(0, 0, 1, -200deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform-origin: left top;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+
+#cf img {
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+  /*animation-direction: alternate;*/
+}
+
+#cf img:nth-of-type(1) {
+  animation-delay: 3s;
+}
+#cf img:nth-of-type(2) {
+  animation-delay: 6s;
+}
+
+/*-----------------*/
+
+#cf2 {
+  position:relative;
+  height:281px;
+  width:450px;
+  margin:20px auto;
+}
+
+#cf2 img {
+  position:absolute;
+  left:0;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes cf2FadeInOut {
+  0% {
+    transform: scale(1,1);
+    transform-origin: center right;
+  }
+  17% {
+    transform: scale(1,1);
+    transform-origin: center right;
+  }
+  25% {
+    transform: scale(0,0);
+    transform-origin: center right;
+  }
+  92% {
+    transform: scale(0,0);
+    transform-origin: center left;
+  }
+  100% {
+    transform: scale(1,1);
+    transform-origin: center left;
+  }
+}
+
+#cf2 img {
+  animation-name: cf2FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+}
+
+#cf2 img:nth-of-type(1) {
+  animation-delay: 6s;
+}
+#cf2 img:nth-of-type(2) {
+  animation-delay: 4s;
+}
+#cf2 img:nth-of-type(3) {
+  animation-delay: 2s;
+}
+#cf2 img:nth-of-type(4) {
+  animation-delay: 0;
+}
+
+/*------------------------------*/
+
+#slider {
+  height:281px;
+  width:450px;
+	margin:40px auto 0;
+	overflow:visible;
+	/*background-color:#362c30;*/
+	/*border:10px solid #362c30;*/
+	transition:all 150ms ease-in;
+	position:relative;
+	transform:rotate(0deg);
+}
+#mask {
+	overflow:hidden;
+}
+#slider:hover {
+	background-color:#fff;
+	border:10px solid #fff;
+	animation:rotatey 400ms ease-out;
+}
+#slider:hover #pause {
+	opacity:1;
+}
+#slider:hover ul, #slider:hover #overlay {
+	animation-play-state:paused;
+}
+#pause {
+  height:281px;
+  width:450px;
+	position:absolute;
+	top:0;
+	opacity:0;
+	/*background-image:url(http://iamceege.com/pure-css3-content-slider/images/paused.png);*/
+	background-position:566px 10px;
+	background-repeat:no-repeat;
+	pointer-events:none;
+	transition:all 150ms ease-in;
+}
+#overlay {
+  height:281px;
+  width:450px;
+	position:absolute;
+	top:0;
+	/*background-image:url(http://iamceege.com/pure-css3-content-slider/images/overlay.png);*/
+	background-position:center;
+	background-repeat:no-repeat;
+	pointer-events:none;
+	transition:all 150ms ease-in;
+	opacity:0.5;
+	animation:overlay-fade 18s infinite;
+}
+#slider ul {
+	width:1800px;
+	list-style:none;
+	padding:0;
+	margin:0;
+	animation:slide-animation 18s infinite;
+	position:relative;
+	left:0px;
+}
+#slider li {
+	display:inline;
+  height:281px;
+  width:450px;
+	margin:0;
+	padding:0;
+	float:left;
+	position:relative;
+	/*background-image:url(http://iamceege.com/pure-css3-content-slider/images/loader.gif);*/
+	background-position:50% 50%;
+	background-repeat:no-repeat;
+}
+#slider li:last-of-type {
+	background-color:#362c30;
+}
+#slider li a {
+	display:block;
+	text-decoration:none;
+}
+#slider li span {
+	display:block;
+	width:450px;
+	/*padding:15px 20px;*/
+	position:absolute;
+	bottom:0;
+	left:0;
+	/*background-color:rgba(54,44,48,0.6);*/
+	border-top:1px solid #362c30;
+	text-shadow:1px 1px 1px #362c30;
+	pointer-events:none;
+	text-align:left;
+}
+@keyframes slide-animation {
+  0% {opacity:0;}
+  2% {opacity:1;}
+  20% {left:0px; opacity:1;}
+  22.5% {opacity:0.6;}
+  25% {left:-450px; opacity:1;}
+  45% {left:-450px; opacity:1;}
+  47.5% {opacity:0.6;}
+  50% {left:-900px; opacity:1;}
+  70% {left:-900px; opacity:1;}
+  72.5% {opacity:0.6;}
+  75% {left:-1350px; opacity:1;}
+  95% {opacity:1;}
+  98% {left:-1350px; opacity:0;}
+  100% {left:0px; opacity:0;}
+}
+
+@keyframes rotatey {
+  0% {transform:rotate(0deg); }
+  25% {transform:rotate(1deg); }
+  50% {transform:rotate(-1deg); }
+  100% {transform:rotate(0deg); }
+}
+@keyframes overlay-fade {
+  0% {opacity:0;}
+  2% {opacity:0.5;}
+  95% {opacity:0.5;}
+  98% {opacity:0;}
+  100% {opacity:0;}
+}
+
+#slider ul li span h2 {
+	font-size:24px;
+	line-height:24px;
+	color:#fff;
+	font-weight:normal;
+	text-shadow:1px 1px 1px #362c30;
+}
